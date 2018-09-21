@@ -2412,3 +2412,836 @@ Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
   ↳ /usr/local/bin/rake:23
   [1m[35m (7157.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
   ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (206.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (202.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_test"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (725.4ms)[0m  [1m[35mCREATE DATABASE "squire_development" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (363.3ms)[0m  [1m[35mCREATE DATABASE "squire_test" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7027000999135617570)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateProducts (20180920201415)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "brand" character varying, "description" character varying, "price" decimal(7,2) DEFAULT 0, "img_url" text, "product_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180920201415_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180920201415"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateComments (20180920201455)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "creator" character varying, "content" text, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a0d280f6e4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20180920201455_create_comments.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_product_id" ON "comments"  ("product_id")[0m
+  ↳ db/migrate/20180920201455_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180920201455"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-21 19:46:09.772653"], ["updated_at", "2018-09-21 19:46:09.772653"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7027000999135617570)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:46:15.439348"], ["updated_at", "2018-09-21 19:46:15.439348"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:56
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:46:54 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:47:35 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (7388.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (0.5ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chuck Suede Chelsea Boot"], ["brand", "New Republic"], ["description", "The boot that launched a thosand fits"], ["price", "0.0"], ["img_url", "https://cdn.shopify.com/s/files/1/1223/5758/products/chucksnd1_1_2048x2048.jpg?v=1510267739"], ["product_url", "https://www.newrepublicman.com/products/chuck-chelsea-boot?variant=1694124081176&utm_source=tbpepperjam&utm_medium=21181&utm_campaign=2-312517&clickId=2442610739"], ["created_at", "2018-09-21 19:48:42.453066"], ["updated_at", "2018-09-21 19:48:42.453066"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Holt Leather Biker Jacket"], ["brand", "AllSaints"], ["description", "A leather biker jacket that will never, ever go out of style"], ["price", "0.0"], ["img_url", "https://images.allsaints.com/products/600/ML009P/5/ML009P-5-3.jpg"], ["product_url", "https://www.us.allsaints.com/men/leather-jackets/allsaints-holt-biker/?colour=5&category=501&partner=awin&utm_source=awin&utm_medium=affiliate&utm_term=78888&utm_campaign=Skimlinks&source=aw&awc=7861_1537549530_e1e14eb820106ef8524ca237a30cb415"], ["created_at", "2018-09-21 19:48:42.457052"], ["updated_at", "2018-09-21 19:48:42.457052"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rectangular-frame acetate sunglasses"], ["brand", "Gucci"], ["description", "Consider these throwback acetate frames just further proof that theres almost nothing Alessandro Michele cant make better, cooler, and a hell of a lot wavier."], ["price", "0.0"], ["img_url", "https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1509380107/504307_J0070_2211_001_100_0000_Light-Rectangular-frame-acetate-sunglasses.jpg"], ["product_url", "https://www.gucci.com/us/en/pr/men/mens-accessories/mens-sunglasses/mens-sunglasses/mens-square-rectangle/rectangular-frame-acetate-sunglasses-p-504307J00702211?position=25&listName=PGUS4Cols&categoryPath=Men/Mens-Accessories/Mens-Eyewear&ranMID=37490&ranEAID=J84DHJLQkR4&ranSiteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA&utm_source=J84DHJLQkR4&utm_medium=affiliates&utm_campaign=1&utm_content=10&utm_term=J84DHJLQkR4&siteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA"], ["created_at", "2018-09-21 19:48:42.459785"], ["updated_at", "2018-09-21 19:48:42.459785"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hartsfield” organic cotton weekender tote"], ["brand", "Want Les Essentiels."], ["description", "A weekender so handsome, you’ll have no choice but to take more vacations."], ["price", "0.0"], ["img_url", "https://cdn.shopify.com/s/files/1/0029/7172/9987/products/u0sqv3q7lcglbe8veclg.jpg?v=1536618328"], ["product_url", "https://wantapothecary.com/products/hartsfield-organic-cotton-weekender-tote-1"], ["created_at", "2018-09-21 19:48:42.462564"], ["updated_at", "2018-09-21 19:48:42.462564"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Serendipity nude cuff"], ["brand", "Maria Black"], ["description", "A bracelet subtle enough to rock with your new small watch."], ["price", "0.0"], ["img_url", "https://cdn-images.farfetch-contents.com/12/98/14/55/12981455_13734744_480.jpg"], ["product_url", "https://www.farfetch.com/shopping/men/maria-black-serendipity-nude-cuff-item-12981455.aspx?storeid=9449&from=listing&clickref=1101l5EhtTpd&utm_source=condenast&utm_medium=affiliate&utm_campaign=PHUS&utm_term=USNetwork&pid=performancehorizon_int&c=condenast&clickid=1101l5EhtTpd&af_siteid=1100l20065&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true"], ["created_at", "2018-09-21 19:48:42.465264"], ["updated_at", "2018-09-21 19:48:42.465264"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:48:42.473783"], ["updated_at", "2018-09-21 19:48:42.473783"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:48:49 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 79ms (Views: 52.4ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:48:49 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:48:51 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:49:05 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:49:07 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (2.9ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (1.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chuck Suede Chelsea Boot"], ["brand", "New Republic"], ["description", "The boot that launched a thosand fits"], ["price", "99.0"], ["img_url", "https://cdn.shopify.com/s/files/1/1223/5758/products/chucksnd1_1_2048x2048.jpg?v=1510267739"], ["product_url", "https://www.newrepublicman.com/products/chuck-chelsea-boot?variant=1694124081176&utm_source=tbpepperjam&utm_medium=21181&utm_campaign=2-312517&clickId=2442610739"], ["created_at", "2018-09-21 19:49:15.072755"], ["updated_at", "2018-09-21 19:49:15.072755"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Holt Leather Biker Jacket"], ["brand", "AllSaints"], ["description", "A leather biker jacket that will never, ever go out of style"], ["price", "0.0"], ["img_url", "https://images.allsaints.com/products/600/ML009P/5/ML009P-5-3.jpg"], ["product_url", "https://www.us.allsaints.com/men/leather-jackets/allsaints-holt-biker/?colour=5&category=501&partner=awin&utm_source=awin&utm_medium=affiliate&utm_term=78888&utm_campaign=Skimlinks&source=aw&awc=7861_1537549530_e1e14eb820106ef8524ca237a30cb415"], ["created_at", "2018-09-21 19:49:15.075967"], ["updated_at", "2018-09-21 19:49:15.075967"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rectangular-frame acetate sunglasses"], ["brand", "Gucci"], ["description", "Consider these throwback acetate frames just further proof that theres almost nothing Alessandro Michele cant make better, cooler, and a hell of a lot wavier."], ["price", "0.0"], ["img_url", "https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1509380107/504307_J0070_2211_001_100_0000_Light-Rectangular-frame-acetate-sunglasses.jpg"], ["product_url", "https://www.gucci.com/us/en/pr/men/mens-accessories/mens-sunglasses/mens-sunglasses/mens-square-rectangle/rectangular-frame-acetate-sunglasses-p-504307J00702211?position=25&listName=PGUS4Cols&categoryPath=Men/Mens-Accessories/Mens-Eyewear&ranMID=37490&ranEAID=J84DHJLQkR4&ranSiteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA&utm_source=J84DHJLQkR4&utm_medium=affiliates&utm_campaign=1&utm_content=10&utm_term=J84DHJLQkR4&siteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA"], ["created_at", "2018-09-21 19:49:15.079150"], ["updated_at", "2018-09-21 19:49:15.079150"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hartsfield” organic cotton weekender tote"], ["brand", "Want Les Essentiels."], ["description", "A weekender so handsome, you’ll have no choice but to take more vacations."], ["price", "0.0"], ["img_url", "https://cdn.shopify.com/s/files/1/0029/7172/9987/products/u0sqv3q7lcglbe8veclg.jpg?v=1536618328"], ["product_url", "https://wantapothecary.com/products/hartsfield-organic-cotton-weekender-tote-1"], ["created_at", "2018-09-21 19:49:15.082454"], ["updated_at", "2018-09-21 19:49:15.082454"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Serendipity nude cuff"], ["brand", "Maria Black"], ["description", "A bracelet subtle enough to rock with your new small watch."], ["price", "0.0"], ["img_url", "https://cdn-images.farfetch-contents.com/12/98/14/55/12981455_13734744_480.jpg"], ["product_url", "https://www.farfetch.com/shopping/men/maria-black-serendipity-nude-cuff-item-12981455.aspx?storeid=9449&from=listing&clickref=1101l5EhtTpd&utm_source=condenast&utm_medium=affiliate&utm_campaign=PHUS&utm_term=USNetwork&pid=performancehorizon_int&c=condenast&clickid=1101l5EhtTpd&af_siteid=1100l20065&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true"], ["created_at", "2018-09-21 19:49:15.085324"], ["updated_at", "2018-09-21 19:49:15.085324"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (1.3ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:49:15.094056"], ["updated_at", "2018-09-21 19:49:15.094056"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (1.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chuck Suede Chelsea Boot"], ["brand", "New Republic"], ["description", "The boot that launched a thosand fits"], ["price", "99.0"], ["img_url", "https://cdn.shopify.com/s/files/1/1223/5758/products/chucksnd1_1_2048x2048.jpg?v=1510267739"], ["product_url", "https://www.newrepublicman.com/products/chuck-chelsea-boot?variant=1694124081176&utm_source=tbpepperjam&utm_medium=21181&utm_campaign=2-312517&clickId=2442610739"], ["created_at", "2018-09-21 19:49:29.215771"], ["updated_at", "2018-09-21 19:49:29.215771"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Holt Leather Biker Jacket"], ["brand", "AllSaints"], ["description", "A leather biker jacket that will never, ever go out of style"], ["price", "0.0"], ["img_url", "https://images.allsaints.com/products/600/ML009P/5/ML009P-5-3.jpg"], ["product_url", "https://www.us.allsaints.com/men/leather-jackets/allsaints-holt-biker/?colour=5&category=501&partner=awin&utm_source=awin&utm_medium=affiliate&utm_term=78888&utm_campaign=Skimlinks&source=aw&awc=7861_1537549530_e1e14eb820106ef8524ca237a30cb415"], ["created_at", "2018-09-21 19:49:29.219377"], ["updated_at", "2018-09-21 19:49:29.219377"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rectangular-frame acetate sunglasses"], ["brand", "Gucci"], ["description", "Consider these throwback acetate frames just further proof that theres almost nothing Alessandro Michele cant make better, cooler, and a hell of a lot wavier."], ["price", "0.0"], ["img_url", "https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1509380107/504307_J0070_2211_001_100_0000_Light-Rectangular-frame-acetate-sunglasses.jpg"], ["product_url", "https://www.gucci.com/us/en/pr/men/mens-accessories/mens-sunglasses/mens-sunglasses/mens-square-rectangle/rectangular-frame-acetate-sunglasses-p-504307J00702211?position=25&listName=PGUS4Cols&categoryPath=Men/Mens-Accessories/Mens-Eyewear&ranMID=37490&ranEAID=J84DHJLQkR4&ranSiteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA&utm_source=J84DHJLQkR4&utm_medium=affiliates&utm_campaign=1&utm_content=10&utm_term=J84DHJLQkR4&siteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA"], ["created_at", "2018-09-21 19:49:29.222272"], ["updated_at", "2018-09-21 19:49:29.222272"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hartsfield” organic cotton weekender tote"], ["brand", "Want Les Essentiels."], ["description", "A weekender so handsome, you’ll have no choice but to take more vacations."], ["price", "0.0"], ["img_url", "https://cdn.shopify.com/s/files/1/0029/7172/9987/products/u0sqv3q7lcglbe8veclg.jpg?v=1536618328"], ["product_url", "https://wantapothecary.com/products/hartsfield-organic-cotton-weekender-tote-1"], ["created_at", "2018-09-21 19:49:29.225470"], ["updated_at", "2018-09-21 19:49:29.225470"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Serendipity nude cuff"], ["brand", "Maria Black"], ["description", "A bracelet subtle enough to rock with your new small watch."], ["price", "0.0"], ["img_url", "https://cdn-images.farfetch-contents.com/12/98/14/55/12981455_13734744_480.jpg"], ["product_url", "https://www.farfetch.com/shopping/men/maria-black-serendipity-nude-cuff-item-12981455.aspx?storeid=9449&from=listing&clickref=1101l5EhtTpd&utm_source=condenast&utm_medium=affiliate&utm_campaign=PHUS&utm_term=USNetwork&pid=performancehorizon_int&c=condenast&clickid=1101l5EhtTpd&af_siteid=1100l20065&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true"], ["created_at", "2018-09-21 19:49:29.228080"], ["updated_at", "2018-09-21 19:49:29.228080"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:49:29.235943"], ["updated_at", "2018-09-21 19:49:29.235943"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (7465.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:50:19 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 13]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 14]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/11" for 127.0.0.1 at 2018-09-21 15:50:20 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/12" for 127.0.0.1 at 2018-09-21 15:50:29 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:50:44 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 13]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 14]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/11" for 127.0.0.1 at 2018-09-21 15:50:45 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:50:48 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 13]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 14]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products/12" for 127.0.0.1 at 2018-09-21 15:50:49 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 1.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (7507.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (1.5ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chuck Suede Chelsea Boot"], ["brand", "New Republic"], ["description", "The boot that launched a thosand fits"], ["price", "99.0"], ["img_url", "https://cdn.shopify.com/s/files/1/1223/5758/products/chucksnd1_1_2048x2048.jpg?v=1510267739"], ["product_url", "https://www.newrepublicman.com/products/chuck-chelsea-boot?variant=1694124081176&utm_source=tbpepperjam&utm_medium=21181&utm_campaign=2-312517&clickId=2442610739"], ["created_at", "2018-09-21 19:51:16.402631"], ["updated_at", "2018-09-21 19:51:16.402631"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Holt Leather Biker Jacket"], ["brand", "AllSaints"], ["description", "A leather biker jacket that will never, ever go out of style"], ["price", "498.0"], ["img_url", "https://images.allsaints.com/products/600/ML009P/5/ML009P-5-3.jpg"], ["product_url", "https://www.us.allsaints.com/men/leather-jackets/allsaints-holt-biker/?colour=5&category=501&partner=awin&utm_source=awin&utm_medium=affiliate&utm_term=78888&utm_campaign=Skimlinks&source=aw&awc=7861_1537549530_e1e14eb820106ef8524ca237a30cb415"], ["created_at", "2018-09-21 19:51:16.407321"], ["updated_at", "2018-09-21 19:51:16.407321"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rectangular-frame acetate sunglasses"], ["brand", "Gucci"], ["description", "Consider these throwback acetate frames just further proof that theres almost nothing Alessandro Michele cant make better, cooler, and a hell of a lot wavier."], ["price", "305.0"], ["img_url", "https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1509380107/504307_J0070_2211_001_100_0000_Light-Rectangular-frame-acetate-sunglasses.jpg"], ["product_url", "https://www.gucci.com/us/en/pr/men/mens-accessories/mens-sunglasses/mens-sunglasses/mens-square-rectangle/rectangular-frame-acetate-sunglasses-p-504307J00702211?position=25&listName=PGUS4Cols&categoryPath=Men/Mens-Accessories/Mens-Eyewear&ranMID=37490&ranEAID=J84DHJLQkR4&ranSiteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA&utm_source=J84DHJLQkR4&utm_medium=affiliates&utm_campaign=1&utm_content=10&utm_term=J84DHJLQkR4&siteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA"], ["created_at", "2018-09-21 19:51:16.409642"], ["updated_at", "2018-09-21 19:51:16.409642"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hartsfield” organic cotton weekender tote"], ["brand", "Want Les Essentiels."], ["description", "A weekender so handsome, you’ll have no choice but to take more vacations."], ["price", "450.0"], ["img_url", "https://cdn.shopify.com/s/files/1/0029/7172/9987/products/u0sqv3q7lcglbe8veclg.jpg?v=1536618328"], ["product_url", "https://wantapothecary.com/products/hartsfield-organic-cotton-weekender-tote-1"], ["created_at", "2018-09-21 19:51:16.412244"], ["updated_at", "2018-09-21 19:51:16.412244"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Serendipity nude cuff"], ["brand", "Maria Black"], ["description", "A bracelet subtle enough to rock with your new small watch."], ["price", "250.0"], ["img_url", "https://cdn-images.farfetch-contents.com/12/98/14/55/12981455_13734744_480.jpg"], ["product_url", "https://www.farfetch.com/shopping/men/maria-black-serendipity-nude-cuff-item-12981455.aspx?storeid=9449&from=listing&clickref=1101l5EhtTpd&utm_source=condenast&utm_medium=affiliate&utm_campaign=PHUS&utm_term=USNetwork&pid=performancehorizon_int&c=condenast&clickid=1101l5EhtTpd&af_siteid=1100l20065&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true"], ["created_at", "2018-09-21 19:51:16.414884"], ["updated_at", "2018-09-21 19:51:16.414884"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (0.8ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:51:16.422949"], ["updated_at", "2018-09-21 19:51:16.422949"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (7097.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (214.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_development"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (204.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "squire_test"[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (393.2ms)[0m  [1m[35mCREATE DATABASE "squire_development" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (411.4ms)[0m  [1m[35mCREATE DATABASE "squire_test" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7027000999135617570)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateProducts (20180920201415)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "brand" character varying, "description" character varying, "price" decimal(7,2) DEFAULT 0, "img_url" text, "product_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180920201415_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180920201415"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateComments (20180920201455)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "creator" character varying, "content" text, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a0d280f6e4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20180920201455_create_comments.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_product_id" ON "comments"  ("product_id")[0m
+  ↳ db/migrate/20180920201455_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180920201455"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-21 19:52:54.307978"], ["updated_at", "2018-09-21 19:52:54.307978"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7027000999135617570)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "New Republic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Chuck Suede Chelsea Boot"], ["brand", "New Republic"], ["description", "The boot that launched a thosand fits"], ["price", "99.0"], ["img_url", "https://cdn.shopify.com/s/files/1/1223/5758/products/chucksnd1_1_2048x2048.jpg?v=1510267739"], ["product_url", "https://www.newrepublicman.com/products/chuck-chelsea-boot?variant=1694124081176&utm_source=tbpepperjam&utm_medium=21181&utm_campaign=2-312517&clickId=2442610739"], ["created_at", "2018-09-21 19:53:00.559123"], ["updated_at", "2018-09-21 19:53:00.559123"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "AllSaints"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Holt Leather Biker Jacket"], ["brand", "AllSaints"], ["description", "A leather biker jacket that will never, ever go out of style"], ["price", "498.0"], ["img_url", "https://images.allsaints.com/products/600/ML009P/5/ML009P-5-3.jpg"], ["product_url", "https://www.us.allsaints.com/men/leather-jackets/allsaints-holt-biker/?colour=5&category=501&partner=awin&utm_source=awin&utm_medium=affiliate&utm_term=78888&utm_campaign=Skimlinks&source=aw&awc=7861_1537549530_e1e14eb820106ef8524ca237a30cb415"], ["created_at", "2018-09-21 19:53:00.564455"], ["updated_at", "2018-09-21 19:53:00.564455"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Gucci"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Rectangular-frame acetate sunglasses"], ["brand", "Gucci"], ["description", "Consider these throwback acetate frames just further proof that theres almost nothing Alessandro Michele cant make better, cooler, and a hell of a lot wavier."], ["price", "305.0"], ["img_url", "https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1509380107/504307_J0070_2211_001_100_0000_Light-Rectangular-frame-acetate-sunglasses.jpg"], ["product_url", "https://www.gucci.com/us/en/pr/men/mens-accessories/mens-sunglasses/mens-sunglasses/mens-square-rectangle/rectangular-frame-acetate-sunglasses-p-504307J00702211?position=25&listName=PGUS4Cols&categoryPath=Men/Mens-Accessories/Mens-Eyewear&ranMID=37490&ranEAID=J84DHJLQkR4&ranSiteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA&utm_source=J84DHJLQkR4&utm_medium=affiliates&utm_campaign=1&utm_content=10&utm_term=J84DHJLQkR4&siteID=J84DHJLQkR4-Est2Ht9VqNrBagE46P8NPA"], ["created_at", "2018-09-21 19:53:00.567039"], ["updated_at", "2018-09-21 19:53:00.567039"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Want Les Essentiels."], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hartsfield” organic cotton weekender tote"], ["brand", "Want Les Essentiels."], ["description", "A weekender so handsome, you’ll have no choice but to take more vacations."], ["price", "450.0"], ["img_url", "https://cdn.shopify.com/s/files/1/0029/7172/9987/products/u0sqv3q7lcglbe8veclg.jpg?v=1536618328"], ["product_url", "https://wantapothecary.com/products/hartsfield-organic-cotton-weekender-tote-1"], ["created_at", "2018-09-21 19:53:00.569678"], ["updated_at", "2018-09-21 19:53:00.569678"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."brand" = $1 LIMIT $2[0m  [["brand", "Maria Black"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "description", "price", "img_url", "product_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Serendipity nude cuff"], ["brand", "Maria Black"], ["description", "A bracelet subtle enough to rock with your new small watch."], ["price", "250.0"], ["img_url", "https://cdn-images.farfetch-contents.com/12/98/14/55/12981455_13734744_480.jpg"], ["product_url", "https://www.farfetch.com/shopping/men/maria-black-serendipity-nude-cuff-item-12981455.aspx?storeid=9449&from=listing&clickref=1101l5EhtTpd&utm_source=condenast&utm_medium=affiliate&utm_campaign=PHUS&utm_term=USNetwork&pid=performancehorizon_int&c=condenast&clickid=1101l5EhtTpd&af_siteid=1100l20065&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true"], ["created_at", "2018-09-21 19:53:00.572412"], ["updated_at", "2018-09-21 19:53:00.572412"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("creator", "content", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["creator", "Santiago Valencia"], ["content", "Shoe sizes are completely off, I always buy size 10 but I had to return the shoes as they were too large. Pictures on the web site are not accurate for the products. I then returned the shoes and was never credited back on my card."], ["product_id", 1], ["created_at", "2018-09-21 19:53:00.580678"], ["updated_at", "2018-09-21 19:53:00.580678"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:53:23 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 76ms (Views: 62.3ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:53:25 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:54:10 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:54:16 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:54:56 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:54:57 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:55:39 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:55:40 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:55:43 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:55:54 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-21 15:55:55 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-09-21 15:56:12 -0400
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.2ms)
+
+
