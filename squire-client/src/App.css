@@ -1,28 +1,395 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+*{
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color:#2a97e0; 
+  height: 24vh;
+  padding: 1vw;   
   color: white;
 }
+/* ------------------------------------- */
 
-.App-title {
-  font-size: 1.5em;
+
+/* NAV BAR */
+.header {
+  padding: 15px 20px 15px 20px;
+  margin: 0;
+  border: solid 2px white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  color: white;
+  text-transform: lowercase;
+  font-family: 'Do Hyeon', sans-serif;
+ 
 }
 
-.App-intro {
-  font-size: large;
+/* ------------------------------------- */
+
+/* APP TITLE */
+h1 {
+  font-weight: 500;
+  font-size: 80px;
+  text-align: center;
+  text-transform: lowercase;
+  font-family: 'Londrina Outline', cursive;  
+}
+/* ------------------------------------ */
+
+/* IMAGES */
+img {
+  display: inline-block;
+  height:100px;
+  width: 200px;
+  padding:2px;
+  border:2px solid white;
+  background-color:whitesmoke;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+img:hover { 
+  background-color: gainsboro;
+}
+
+.detail-img {
+  display: inline-block;
+  height:200px;
+  width: 300px;
+  padding:2px;
+  border:1px solid whitesmoke;
+  background-color: gainsboro;
+}
+
+/* ------------------------------------- */
+h2 {
+  color: gray;
+}
+/* PRODUCT DETAILS */
+.myButton {
+	-moz-box-shadow:inset 0px 39px 0px -24px gray;
+	-webkit-box-shadow:inset 0px 39px 0px -24px gray;
+	box-shadow:inset 0px 39px 0px -24px gray;
+	background-color:rgb(95, 28, 28);
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px rgb(143, 27, 27);
+}
+.myButton:hover {
+	background-color: #2a97e0;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.product-details {
+  text-align: center;
+  border: white;
+  color: white;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+}
+.detail-title {
+  font-size: 30px;
+  font-family: 'Nosifer', cursive;
+  color:rgb(139, 25, 25);
+}
+.detail {
+  color: whitesmoke;
+  font-size: 30px;
+}
+.detail-names {
+  font-size: 20px;
+}
+
+a {
+  font-size: 20px;
+}
+
+.delete-button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  font-size: 40px;
+  border-radius: 8px;
+}
+.delete-button:hover {
+  background-color: red;
+  color: black;
+}
+
+
+/* --------------------------------- */
+
+
+/*CREATE PRODUCT */
+.create-product {
+  text-align: center;
+  margin-top: 20vh;
+  margin-left: 35vw;
+  margin-right: 10vw;
+  margin-bottom: 5vh;
+  width: 40vw;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #2a97e0;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #2a97e0;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+  }
+}
+
+
+/* --------------------------------- */
+
+
+
+/*PRODUCT INDEX */
+.product-index {
+  text-align: center;
+  margin-left: 15vw; 
+  margin-right: 10vw; 
+  width: 50vw;
+}
+
+.productindex {
+  margin-top: 20vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  position: relative;
+}
+
+.product-title {
+  font-size: 30px;
+  font-family: 'Nosifer', cursive;
+  color: black;
+}
+
+.product- {
+  color: black;
+  font-size: 20px;
+}
+
+
+/* --------------------------------- */
+
+
+
+/* EDIT PRODUCT  */
+.edit-product {
+  text-align: center;
+  margin-top: 20vh;
+  margin-left: 35vw;
+  margin-right: 10vw;
+  margin-bottom: 5vh;
+  width: 40vw;
+  /* border: solid 2px blue; */
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #2a97e0;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #2a97e0;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+  }
+}
+
+/* --------------------------------- */
+
+/*PRODUCT CONTENT */
+ body {
+  background-color: white;
+  margin:0;
+  overflow:hidden;
+  padding:0;
+} 
+
+.screen {
+  animation:colorPulse 5s infinite ease-in-out;
+  box-shadow:0 0 5vmin 1vmin #000 inset;
+  box-sizing:border-box;
+  font-family: 'VT323', monospace;
+  font-size:20px;
+  height:40vh;
+  overflow:hidden;
+  padding:10vmin;
+  width:60vw;
+  border: solid 2px red;
+}
+
+.screen:before {
+  animation:wave 10s infinite ease-in-out;
+  content:"";
+  left:0;
+  opacity:.5;
+  position:absolute;
+  right:0;
+}
+
+.screen:after {
+  background-size:4px 4px;
+  bottom:0;
+  content:"";
+  left:0;
+  pointer-events:none;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:2;
+}
+
+p:last-child:after {
+  animation:blink 1s infinite;
+  content:"_";
+}
+
+
+/* --------------------------- */
+
+
+/* FOOTER */
+footer {
+  width: 100%;
+  text-transform: uppercase;
+  background-color: rgb(80, 177, 241);
+  color: white;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-weight: 300;
+}
+.copyright {
+  float: left;
+  text-transform: lowercase;
+  font-family: 'Do Hyeon', sans-serif;
+  color: white;
+  /* font-size: 2vw; */
+}
+
+.message {
+  float: right;
+  font-family: "Raleway" , sans-serif;
+  color: white;
+  text-transform: lowercase;
+  font-family: 'Do Hyeon', sans-serif;
+
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+  font-size: 0;
+}
+.name {
+  color:white;
+  font-weight: 700;
 }
