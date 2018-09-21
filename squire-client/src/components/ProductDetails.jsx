@@ -12,7 +12,7 @@ console.log(props)
         <h4 className="detail-names">Brand: <span className="detail">{props.product.brand}</span></h4>
         <h4 className="detail-names">Description: <span className="detail">{props.product.description}</span></h4>
         <br />
-        <h4> <span className="screen">{props.product.price}</span></h4>
+        <h4> <span>{props.product.price}</span></h4>
         {/* <h4>Comments: {props.product.comment}</h4>  */}
         <br />
         <br />
@@ -21,7 +21,7 @@ console.log(props)
         <br />
         <br />
         {props.product.product_url ? 
-        <a href={props.product.product_url}>Click here for Product</a>
+        <a href={props.product.product_url}>BUY ITEM</a>
         : null}
       </div>)
 }

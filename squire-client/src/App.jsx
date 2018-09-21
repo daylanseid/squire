@@ -44,7 +44,7 @@ fetchAllProducts() {
   getProducts()
     .then(data => {
       this.setState({
-      products: [],
+      products: data.products,
       })
     })
 }

@@ -11,14 +11,14 @@ function ProductIndex(props) {
                         <br />
                         <h1 className="product-name">{product.name}</h1>
                         <br />
-                        <h3 className="product-brand">By: {product.brand}</h3>
+                        <h3 className="product-brand">{product.brand}</h3>
                         <br />
                         <button className="myButton"
                             onClick={(ev) => {
                                  ev.preventDefault();
                                 props.detail(product)
                             }} >
-                            View Product Detail
+                            View Product Details
                         </button>
                         <br />
                         <br />

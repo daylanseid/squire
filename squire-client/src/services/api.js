@@ -1,7 +1,7 @@
 const BASE_URL = process.env.REACT_APP_API_URL
 
 
-//GET ALL PRODUCTS
+// GET ALL PRODUCTS
 function getProducts() {
     return fetch(BASE_URL + '/products')
     .then(resp => resp.json())
@@ -9,6 +9,14 @@ function getProducts() {
         //throw Error(err);
       });
 }
+
+// function getProducts() {
+//   return fetch('http://localhost:3000/products')
+//   .then(resp => resp.json())
+//     .catch(err => {
+//       //throw Error(err);
+//     });
+// }
 
 
 //GET ALL COMMENTS based on product id
