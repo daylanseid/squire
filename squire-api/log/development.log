@@ -3245,3 +3245,42 @@ Processing by ProductsController#index as */*
 Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/products" for 127.0.0.1 at 2018-09-24 01:15:25 -0400
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/controllers/products_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:5
+Completed 200 OK in 116ms (Views: 78.3ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-24 01:16:25 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 9ms (Views: 2.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-09-24 01:16:57 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:11
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:12
+Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 2.4ms)
+
+
